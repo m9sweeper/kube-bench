@@ -12,14 +12,14 @@
 # master = run on master
 # all = run on both nodes
 
-provider: ""
+provider: "aks"
 
 #### URL of your kube-bench api of app to send reports
 reportsurl: ""
 
 
 cronjob:
-  enabled: true
+  enabled: false
   # At 01:00 every day
   schedule: "0 0 * * *"
   annotations: {}
@@ -47,12 +47,12 @@ resources:
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  #limits:
-  #  cpu: 300m
-  #  memory: 512Mi
-  #requests:
-  #  cpu: 100m
-  #  memory: 128Mi
+  limits:
+    cpu: 300m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
 
 priorityClassName: ""
 

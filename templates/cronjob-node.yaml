@@ -1,5 +1,4 @@
 {{- if .Values.cronjob.enabled }}
-{{- if eq .Values.provider "node" }}
 ---
 {{- if .Capabilities.APIVersions.Has "batch/v1/CronJob" -}}
 apiVersion: batch/v1
@@ -8,7 +7,7 @@ apiVersion: batch/v1beta1
 {{- end }}
 kind: CronJob
 metadata:
-  name: {{ template "kube-bench.fullname" . }}
+  name: {{ template "kube-bench.fullname" . }}-node
   labels:
     app: {{ template "kube-bench.name" . }}
     chart: {{ template "kube-bench.chart" . }}
@@ -146,6 +145,5 @@ spec:
     {{- with .Values.tolerations }}
           tolerations:
 {{ toYaml . | indent 12 }}:
-{{- end }}
 {{- end }}
 {{- end }}
