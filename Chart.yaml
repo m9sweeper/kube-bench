@@ -3,7 +3,7 @@ name: kube-bench
 description: A Helm chart for the m9sweeper bench and API
 type: application
 appVersion: 0.6.3
-version: 0.0.1
+version: 0.0.2
 home: https://github.com/m9sweeper/kube-bench
 sources:
   - https://github.com/m9sweeper/kube-bench
